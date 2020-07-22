@@ -90,12 +90,26 @@
 
                 <!-- Notifications Dropdown Menu -->
             </nav><!-- .nav-menu -->
+   
 
       <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Rezervo</span> Terminin</a>
-      <a href="{{ route('login') }}" class="appointment-btn1 scrollto"><span class="d-none d-md-inline right">Kyqeni</span></a>
-     
+      @if(auth()->user())
+      <a href="{{ route('Administrator.cms') }}" class="appointment-btn1 scrollto"><span class="d-none d-md-inline right">Admin Panel</span></a>
+      @else
+   <a href="{{ route('login') }}" class="appointment-btn1 scrollto"><span class="d-none d-md-inline right">  Kyqeni </span></a>
+       @endif 
+         
+      
+    
+    
+       
+ 
 
     </div>
+    
+     
+    
+  
     
   </header><!-- End Header -->
 
