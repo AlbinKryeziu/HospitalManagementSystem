@@ -24,7 +24,11 @@ Route::namespace('Administrator')->prefix('Administrator')->name('Administrator.
     Route::get('/welcome','AdminUserController@welcome')->name('welcome'); 
    Route::get('/index','AdminUserController@index')->name('index');
    Route::get('/cms','AdminUserController@cms')->name('cms');
-  
+  });
 
-});
+  Route::namespace('Administrator\ModuliSpitali')->prefix('ModuliSpitali')->name('Spitali.')->group(function(){
+  Route::get('/spitali', 'SpitaliController@index')->name('spitali');
+  Route::get('/alldoctor', 'DoctorController@alldoctor')->name('alldoctor');
+  });
+ 
 

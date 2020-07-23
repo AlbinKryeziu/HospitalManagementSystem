@@ -59,9 +59,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Task');
     }
-    public function isAdmin() 
+    public function isAdmin($role) 
 {
-   if($this->roles()->where('role_id', 1)->first()){
+   if($this->roles()->where('name',$role)->first()){
      return true;
     }
 

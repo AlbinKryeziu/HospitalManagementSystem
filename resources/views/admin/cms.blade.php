@@ -139,7 +139,7 @@
                                     <p><img class=" img-fluid" src="{{ asset('image/hp1.png') }}" alt="card image"></p>
                                     <h4 class="card-title">Moduli i Spitalit</h4>
                                     <p class="card-text"></p>
-                                    <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    <a href="{{route('Spitali.spitali')}}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
