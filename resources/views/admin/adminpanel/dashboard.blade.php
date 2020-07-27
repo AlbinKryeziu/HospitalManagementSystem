@@ -296,14 +296,14 @@
         </div>
         <div class="page-wrapper">
             <div class="content">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                
+                 
                     <br>
                     <br>
                        @yield('content')
-                </div>
+               
             </div>
-        </div>
+       
     
     <div class="sidebar-overlay" data-reff=""></div>
     <script src="{{ asset('dshb/assets/js/jquery-3.2.1.min.js')}}"></script>

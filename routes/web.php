@@ -29,6 +29,10 @@ Route::namespace('Administrator')->prefix('Administrator')->name('Administrator.
   Route::namespace('Administrator\ModuliSpitali')->prefix('ModuliSpitali')->name('Spitali.')->group(function(){
   Route::get('/spitali', 'SpitaliController@index')->name('spitali');
   Route::get('/alldoctor', 'DoctorController@alldoctor')->name('alldoctor');
+  Route::get('/add-doctor-formular', 'DoctorController@addformular')->name('addformular');
+  Route::post('/Adddoctor', 'DoctorController@Adddoctor')->name('Adddoctor');
+  Route::post('/profile', 'DoctorController@profiledoctor')->name('profiledoctor');
+
   });
  
 

@@ -386,7 +386,7 @@ table.table td h2 span {
 }
 .bg-primary,
 .badge-primary {
-	background-color: #009efb !important;
+	background-color: #17a2b8 !important;
 }
 .bg-success,
 .badge-success {
@@ -394,7 +394,7 @@ table.table td h2 span {
 }
 .bg-info,
 .badge-info {
-	background-color: #009efb !important;
+	background-color: #17a2b8 !important;
 }
 .bg-warning,
 .badge-warning {
@@ -433,7 +433,7 @@ table.table td h2 span {
 }
 .btn-primary {
 	border-color: transparent;
-	background-color: #009efb;
+	background-color: #17a2b8;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -702,7 +702,7 @@ textarea.form-control {
 -----------------------*/
 
 .header {
-	background-color: #009efb;
+	background-color: #17a2b8;
 	left: 0;
 	position: fixed;
 	right: 0;
@@ -824,7 +824,7 @@ textarea.form-control {
 	top: 50px;
 	width: 230px;
 	z-index: 1039;
-	background-color: #fff;
+	background-color:white;
 	bottom: 0;
 	margin-top: 0px;
 	position: fixed;
@@ -845,20 +845,23 @@ textarea.form-control {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	
 }
 .sidebar-menu li a {
-	color: #888;
+	color :black;
 	display: block;
 	font-size: 15px;
 	height: auto;
 	padding: 0 20px;
 }
 .sidebar-menu li a:hover {
-	color: #009efb;
+	color :white;
+	background-color: #17a2b8;
+	opacity: inherit;
 }
 .sidebar-menu li.active a {
-	color: #009efb;
-	background-color: #f3f3f3;
+	color: ;
+	background-color: ;
 }
 .menu-title {
 	color: #333;

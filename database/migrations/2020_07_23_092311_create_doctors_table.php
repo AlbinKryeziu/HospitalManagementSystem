@@ -18,7 +18,8 @@ class CreateDoctorsTable extends Migration
             $table->string('fullname');
             $table->string('Address');
             $table->string('phone');
-            $table->integer('phNo');
+            $table->integer('phNo')->unique();
+            $table->boolean('status');
             $table->dateTime('start_job');
             $table->string('image')->default('doctor.jpg');
             $table->unsignedBigInteger('user_id')->nullable();
