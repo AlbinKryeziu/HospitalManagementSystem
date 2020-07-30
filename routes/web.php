@@ -32,7 +32,8 @@ Route::namespace('Administrator')->prefix('Administrator')->name('Administrator.
   Route::get('/add-doctor-formular', 'DoctorController@addformular')->name('addformular');
   Route::post('/Adddoctor', 'DoctorController@Adddoctor')->name('Adddoctor');
   Route::post('/profile', 'DoctorController@profiledoctor')->name('profiledoctor');
-
-  });
+  //Pacient route//
+  Route::get('pacient','PacientController@getPacient')->name('getPacient');
+});
  
 

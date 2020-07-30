@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Doctor;
 use App\User;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\ImageServiceProvider;
 
@@ -106,15 +107,19 @@ class DoctorController extends Controller
     }
 
     public function profiledoctor(Request $request){
-
-        $id=$request->id;
-       
-        $profile=Doctor::where('id', $id)->get();
-        $caunt=Doctor::count();
-    //   return $profile;
+    if(Auth::check()){
+        if (Auth::user()->hasRole('administrator')){
+            $id=$request->id;
+             $profile=Doctor::where('id', $id)->get();
+            $caunt=Doctor::count();
+      
+         return view('admin.mspitali.doctor.profile',compact('profile','caunt'));
+        }
+    }
         
-        return view('admin.mspitali.doctor.profile',compact('profile','caunt'));
-
+        else {
+            return redirect('login');
+        }
 
     }
 }
