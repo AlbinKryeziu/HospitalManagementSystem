@@ -191,7 +191,7 @@
                             <td>{{ $pa->fullname }}</td>
                             <td>{{ $pa->birthday }}</td>
                             <td class="text-center"><i class="fa fa-history"></i></td>
-                            <td>{{ $pa->sex }}</td>
+                            <td>@if($pa->gender = 1) Male @else Female @endif</td>
                             <td>{{ $pa->address }}</td>
                             <td>{{ $pa->email }}</td>
                             <td>{{ $pa->phone }}</td>
