@@ -66,7 +66,7 @@
           <li><a href="#appointment">Rezervo Terminin</a></li>
 
           @if(auth()->user())
-          <a href="{{ route('Administrator.cms') }}">Admin Panel</a>
+          <li><a href="{{ route('Administrator.cms') }}">Admin Panel</a></li>
           @else
           <li><a href="#appointment" data-toggle="modal" data-target="#loginModal"> Kyqeni </button>
            @endif

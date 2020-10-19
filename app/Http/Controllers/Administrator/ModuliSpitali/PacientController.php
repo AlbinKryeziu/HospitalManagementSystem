@@ -8,10 +8,13 @@ use App\Pacient;
 
 class PacientController extends Controller
 {
-    
-public function getPacient(){
-    $pacient=Pacient::all();
-    return view('admin.mspitali.Pacient.pacient',compact('pacient'));
-}
+    public function getPacient()
+    {
+        $pacient = Pacient::all();
 
+        if (request()->has('q')) {
+            $pacient = Pacient::where('fullname', 'LIKE', '%' . request()->get('q') . '%')->get();
+        }
+        return view('admin.mspitali.Pacient.pacient', compact('pacient'));
+    }
 }

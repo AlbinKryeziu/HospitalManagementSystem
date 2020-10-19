@@ -28,7 +28,11 @@ class DoctorController extends Controller
             $doctor = Doctor::where('fullname', 'LIKE', '%' . $request->get('q') . '%')->get();
         }
 
-        return view('admin.mspitali.doctor.indexdoc', compact('doctor', 'count'));
+        return view('admin.mspitali.doctor.indexdoc',[
+          'doctor'=>$doctor,
+          'count'=>$count,
+
+          ]);
     }
 
     public function addFormular()
