@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Spitali</title>
+  <title>O-spitali</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -47,17 +47,14 @@
       <div class="d-flex align-items-center">
         <i class="icofont-phone"></i> Thirr tani ne 045-111-111
       </div>
-      
+
     </div>
   </div>
-
-  <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <a href="index.html" class="logo mr-auto"><img src="{{asset('homepages/assets/img/logo3.1.jpg')}}" alt=""></a>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <h1 class="logo mr-auto"><a href="index.html">Medicio</a></h1> -->
+      {{-- <a href="index.html" class="logo mr-auto"><img src="{{asset('homepages/assets/img/logo3.1.jpg')}}" alt=""></a> --}}
+      <a style="">O-Spitali</a>
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
@@ -65,63 +62,23 @@
            <li><a href="#about">Rreth Nesh</a></li>
           <li><a href="#departments">Sherbimet Mjekësore</a></li>
           <li><a href="#doctors">Stafi Mjekësor</a></li>
-        
-          <!-- <li class="drop-down"><a href="">Drop Down</a>
-          <ul>
-            <li><a href="#">Drop Down 1</a></li>
-            <li class="drop-down"><a href="#">Deep Drop Down</a>
-              <ul>
-                <li><a href="#">Deep Drop Down 1</a></li>
-                <li><a href="#">Deep Drop Down 2</a></li>
-                <li><a href="#">Deep Drop Down 3</a></li>
-                <li><a href="#">Deep Drop Down 4</a></li>
-                <li><a href="#">Deep Drop Down 5</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Drop Down 2</a></li>
-            <li><a href="#">Drop Down 3</a></li>
-            <li><a href="#">Drop Down 4</a></li>
-          </ul>
-        </li> -->
           <li><a href="#contact">Kontakti</a></li>
+          <li><a href="#appointment">Rezervo Terminin</a></li>
+
+          @if(auth()->user())
+          <a href="{{ route('Administrator.cms') }}">Admin Panel</a>
+          @else
+          <li><a href="#appointment" data-toggle="modal" data-target="#loginModal"> Kyqeni </button>
+           @endif
             <ul class="navbar-nav ml-auto">
-                <!-- Messages Dropdown Menu -->
-    
 
-                <!-- Notifications Dropdown Menu -->
-            </nav><!-- .nav-menu -->
-   
-
-      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Rezervo</span> Terminin</a>
-      @if(auth()->user())
-      <a href="{{ route('Administrator.cms') }}" class="appointment-btn1 scrollto"><span class="d-none d-md-inline right">Admin Panel</span></a>
-      @else
-   <a href="{{ route('login') }}" class="appointment-btn1 scrollto"><span class="d-none d-md-inline right">  Kyqeni </span></a>
-       @endif 
-         
-      
-    
-    
-       
- 
-
-    </div>
-    
-     
-    
-  
-    
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
+            </nav>
+          </div>
+ </header>
   <section id="hero">
     <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-
       <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-
       <div class="carousel-inner" role="listbox">
-
-        <!-- Slide 1 -->
         <div class="carousel-item active" style="background-image: url({{asset('homepages/assets/img/slide/slide-1.jpg')}})">
           <div class="container">
             <h2>Mirsevini ne <span> Spitalin</span></h2>
@@ -129,8 +86,6 @@
             <a href="#about" class="btn-get-started scrollto">Read More</a>
           </div>
         </div>
-
-        <!-- Slide 2 -->
         <div class="carousel-item" style="background-image: url({{asset('homepages/assets/img/slide/slide-2.jpg')}})">
           <div class="container">
             <h2>Mjeket Tane</h2>
@@ -138,8 +93,6 @@
             <a href="#about" class="btn-get-started scrollto">Read More</a>
           </div>
         </div>
-
-        <!-- Slide 3 -->
         <div class="carousel-item" style="background-image: url({{asset('homepages/assets/img/slide/slide-3.jpg')}})">
           <div class="container">
             <h2>Aperaturat tona</h2>
@@ -161,11 +114,9 @@
       </a>
 
     </div>
-  </section><!-- End Hero -->
+  </section>
 
   <main id="main">
-
-    <!-- ======= Featured Services Section ======= -->
     <section id="featured-services" class="featured-services">
       <div class="container" data-aos="fade-up">
 
@@ -205,9 +156,7 @@
         </div>
 
       </div>
-    </section><!-- End Featured Services Section -->
-
-    <!-- ======= Cta Section ======= -->
+    </section>
     <section id="cta" class="cta">
       <div class="container" data-aos="zoom-in">
 
@@ -218,9 +167,7 @@
         </div>
 
       </div>
-    </section><!-- End Cta Section -->
-
-    <!-- ======= About Us Section ======= -->
+    </section>
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
 
@@ -253,9 +200,7 @@
         </div>
 
       </div>
-    </section><!-- End About Us Section -->
-
-    <!-- ======= Counts Section ======= -->
+    </section>
     <section id="counts" class="counts">
       <div class="container" data-aos="fade-up">
 
@@ -300,9 +245,7 @@
         </div>
 
       </div>
-    </section><!-- End Counts Section -->
-
-    <!-- ======= Features Section ======= -->
+    </section>
     <section id="features" class="features">
       <div class="container" data-aos="fade-up">
 
@@ -333,9 +276,7 @@
         </div>
 
       </div>
-    </section><!-- End Features Section -->
-
-    <!-- ======= Services Section ======= -->
+    </section>
     <section id="services" class="services services">
       <div class="container" data-aos="fade-up">
 
@@ -378,9 +319,7 @@
         </div>
 
       </div>
-    </section><!-- End Services Section -->
-
-    <!-- ======= Appointment Section ======= -->
+    </section>
     <section id="appointment" class="appointment section-bg">
       <div class="container" data-aos="fade-up">
 
@@ -442,9 +381,7 @@
         </form>
 
       </div>
-    </section><!-- End Appointment Section -->
-
-    <!-- ======= Departments Section ======= -->
+    </section>
     <section id="departments" class="departments">
       <div class="container" data-aos="fade-up">
 
@@ -513,12 +450,7 @@
         </div>
 
       </div>
-    </section><!-- End Departments Section -->
-
-    <!-- ======= Testimonials Section ======= -->
-  
-
-    <!-- ======= Doctors Section ======= -->
+    </section>
     <section id="doctors" class="doctors section-bg">
       <div class="container" data-aos="fade-up">
 
@@ -604,9 +536,7 @@
         </div>
 
       </div>
-    </section><!-- End Doctors Section -->
-
-    <!-- ======= Gallery Section ======= -->
+    </section>
     <section id="gallery" class="gallery">
       <div class="container" data-aos="fade-up">
 
@@ -627,9 +557,7 @@
         </div>
 
       </div>
-    </section><!-- End Gallery Section -->
-
-    <!-- ======= Pricing Section ======= -->
+    </section>
     <section id="pricing" class="pricing">
       <div class="container" data-aos="fade-up">
 
@@ -712,9 +640,7 @@
         </div>
 
       </div>
-    </section><!-- End Pricing Section -->
-
-    <!-- ======= Frequently Asked Questioins Section ======= -->
+    </section>
     <section id="faq" class="faq section-bg">
       <div class="container" data-aos="fade-up">
 
@@ -782,9 +708,7 @@
         </ul>
 
       </div>
-    </section><!-- End Frequently Asked Questioins Section -->
-
-    <!-- ======= Contact Section ======= -->
+    </section>
     <section id="contact" class="contact">
       <div class="container">
 
@@ -863,11 +787,9 @@
         </div>
 
       </div>
-    </section><!-- End Contact Section -->
+    </section>
 
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
+  </main>
   <footer id="footer">
     <div class="footer-top">
       <div class="container">
@@ -926,6 +848,80 @@
         </div>
       </div>
     </div>
+    <div class="modal fade " id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true" style="margin: 100px;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModal">{{ __('Login') }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Login') }}
+                                </button>
+
+                                @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 
     <div class="container">
       <div class="copyright">

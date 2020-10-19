@@ -15,18 +15,14 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $fillable = ['name', 'email', 'password'];
 
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    protected $hidden = ['password', 'remember_token'];
 
     /**
      * The attributes that should be cast to native types.
@@ -36,36 +32,40 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function roles(){
+    public function roles()
+    {
         return $this->belongsToMany('App\Role');
     }
 
     public function hasAnyRoles($roles)
     {
-        if($this->roles()->whereIn('name',$roles)->first()){
+        if (
+            $this->roles()
+                ->whereIn('name', $roles)
+                ->first()
+        ) {
             return true;
         }
         return false;
     }
-    
+
     public function hasRole($role)
     {
-        if($this->roles()->where('name',$role)->first()){
+        if (
+            $this->roles()
+                ->where('name', $role)
+                ->first()
+        ) {
             return true;
         }
         return false;
     }
-     public function task()
+    public function task()
     {
         return $this->hasMany('App\Task');
     }
-    public function isAdmin($role) 
-{
-   if($this->roles()->where('name',$role)->first()){
-     return true;
+    public function isAdmin($role)
+    {
+        return $this->roles->where('id', 1);
     }
-
-    return false;
-}
-    
 }

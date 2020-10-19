@@ -15,12 +15,7 @@ class SpitaliController extends Controller
 {
    public function index(){
 
-       
-     
-   
-   
-    
-         return view('admin.adminpanel.dashboard');
+        return view('admin.adminpanel.dashboard');
 }
 
 
