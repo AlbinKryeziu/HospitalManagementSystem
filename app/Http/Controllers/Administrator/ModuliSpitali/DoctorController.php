@@ -103,4 +103,11 @@ class DoctorController extends Controller
             return redirect('login');
         }
     }
+
+    public function edit($doctorId){
+        $doctor=Doctor::find($doctorId);
+         return view('admin.mspitali.doctor.edit',[
+            'doctor'=>$doctor,
+         ]);
+    }
 }

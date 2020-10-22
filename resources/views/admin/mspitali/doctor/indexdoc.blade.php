@@ -8,34 +8,31 @@
     </div>
 </div>
 
-<br />
+<div class="dash-widget">
+    <span class="dash-widget-bg1"><i class="fa fa-plus" aria-hidden="true"></i></span>
+    <div class="dash-widget-info text-right">
+        <h3>{{$count }}</h3>
 
-<div class="col-md-4 col-sm-4 col-lg-4 col-xl-12">
-    <div class="dash-widget">
-        <span class="dash-widget-bg1"><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
-        <div class="dash-widget-info text-right">
-            <h3>{{$count }}</h3>
-
-            <span class="widget-title1"> Total Doctor<i class="fa fa-check" aria-hidden="true"></i></span>
-        </div>
+        <span class="widget-title1"> Total Doctor<i class="fa fa-check" aria-hidden="true"></i></span>
     </div>
 </div>
+
 <form method="GET">
     <div class="form-group">
-        <input type="text" class="search form-control" placeholder="What you looking for?" name="q" />
+        <input type="text" class="search form-control search-box" placeholder="What you looking for?" name="q" />
     </div>
     <form>
         <div class="row doctor-grid">
             @foreach ($doctor as $doctor )
             <div class="col-md-4 col-sm-4 col-lg-3">
-                <div class="profile-widget">
+                <div class="profile-widget" style="border-top: 1px solid #17a2b8;">
                     <div class="doctor-img">
                         <a class="avatar" href="profile.html"><img alt="" src="{{asset('image/'.$doctor->image)}}" /></a>
                     </div>
                     <div class="dropdown profile-action">
                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="edit-doctor.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                        <a class="dropdown-item" href="{{ action('Administrator\ModuliSpitali\\DoctorController@edit',$doctor->id)}}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_doctor"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                         </div>
                     </div>
@@ -47,7 +44,7 @@
                 </div>
             </div>
 
-            @endforeach @endsection
+            @endforeach 
         </div>
     </form>
-</form>
+    @endsection

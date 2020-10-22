@@ -130,13 +130,13 @@
     </script>
 
     <body>
-        <div class="col-md-4 col-sm-4 col-lg-4 col-xl-12">
+        <div class="col-xl-12">
             <div class="dash-widget">
                 <span class="dash-widget-bg1"><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
                 <div class="dash-widget-info text-right">
-                    <h3>155</h3>
+                <h3>{{$pacient->count()}}</h3>
 
-                    <span class="widget-title1"> Total Doctor<i class="fa fa-check" aria-hidden="true"></i></span>
+                    <span class="widget-title1"> Total Pacient<i class="fa fa-check" aria-hidden="true"></i></span>
                 </div>
             </div>
         </div>
