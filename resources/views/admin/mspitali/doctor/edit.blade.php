@@ -42,6 +42,7 @@
 }
     
 </style>
+<form method="Post" action="">
     <div class="row">
         <div class="col-lg-12">
             <h3 class="text-dark">General Information</h3>
@@ -53,7 +54,7 @@
             <div class="job-detail mt-2 p-4">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="resume-user mb-5">
+                        <div class="resume-user mb-5">h
                         </div>
                     </div>
                 </div>
@@ -70,31 +71,31 @@
 
                             <div class="col-md-4">
                                 <div class="form-group app-label">
-                                    <label for="middle-name" class="text-muted">Middle Name</label>
+                                    <label for="middle-name" class="text-muted">Profession</label>
                                     <input id="middle-name" type="text" class="form-control resume" placeholder="{{$doctor->depart->name}}">
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group app-label">
-                                    <label for="surname-name" class="text-muted">Surname</label>
-                                    <input id="surname-name" type="text" class="form-control resume" placeholder="{{$doctor->pro}}">
+                                    <label for="surname-name" class="text-muted">Age</label>
+                                <input id="surname-name" type="text" class="form-control resume" placeholder="{{ \Carbon\Carbon::parse( $doctor->birthday )->age }}">
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group app-label">
                                     <label for="date-of-birth" class="text-muted">Date Of Birth</label>
-                                    <input id="date-of-birth" type="text" class="form-control resume" placeholder="13-02-1999">
+                                <input id="date-of-birth" type="text" class="form-control resume" placeholder="{{$doctor->birthday}}">
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group app-label">
-                                    <label for="General" class="text-muted">General</label>
+                                    <label for="General" class="text-muted">Gender</label>
                                     <div class="form-button">
                                         <select class="nice-select">
-                                            <option data-display="General">General</option>
+                                        <option data-display="General">{{$doctor->gender}}</option>
                                             <option value="1">Male</option>
                                             <option value="2">Female</option>
                                             <option value="3">Other</option>
@@ -405,6 +406,7 @@
             </div>
         </div>
     </div>
+</form>
 
 
 @endsection

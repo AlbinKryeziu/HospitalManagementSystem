@@ -2,6 +2,7 @@
 <div class="row">
     <div class="col-sm-4 col-3">
         <h4 class="page-title">Doctors</h4>
+    
     </div>
     <div class="col-sm-8 col-6 text-right m-b-5">
         <a href="{{ action('Administrator\ModuliSpitali\\DoctorController@addFormular') }}" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Doctor</a>
@@ -10,6 +11,18 @@
 
 <div class="dash-widget">
     <span class="dash-widget-bg1"><i class="fa fa-plus" aria-hidden="true"></i></span>
+    <div class="dash-widget-info text-center">
+        <form method="GET">
+            <div class="input-group col-md-6" style="left:230px;">
+                <input type="search" placeholder="What're you searching for?" name="q" aria-describedby="button-addon5" class="form-control">
+                <div class="input-group-append">
+                  <button id="button-addon5 " type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                </div>
+              </div>
+        
+            </form>
+    </div>
+   
     <div class="dash-widget-info text-right">
         <h3>{{$count }}</h3>
 
@@ -17,15 +30,18 @@
     </div>
 </div>
 
-<form method="GET">
-    <div class="form-group">
-        <input type="text" class="search form-control search-box" placeholder="What you looking for?" name="q" />
-    </div>
-    <form>
+
         <div class="row doctor-grid">
             @foreach ($doctor as $doctor )
             <div class="col-md-4 col-sm-4 col-lg-3">
+               
                 <div class="profile-widget" style="border-top: 1px solid #17a2b8;">
+                    @if($doctor->status == 1)
+                    <span class="badge badge-info float-left">Online</span>
+                    @else 
+                    <span class="badge badge-danger float-left">Offline</span>
+                    @endif
+
                     <div class="doctor-img">
                         <a class="avatar" href="profile.html"><img alt="" src="{{asset('image/'.$doctor->image)}}" /></a>
                     </div>
@@ -46,5 +62,5 @@
 
             @endforeach 
         </div>
-    </form>
+
     @endsection

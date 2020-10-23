@@ -105,7 +105,9 @@ class DoctorController extends Controller
     }
 
     public function edit($doctorId){
+       
         $doctor=Doctor::find($doctorId);
+      
          return view('admin.mspitali.doctor.edit',[
             'doctor'=>$doctor,
          ]);
