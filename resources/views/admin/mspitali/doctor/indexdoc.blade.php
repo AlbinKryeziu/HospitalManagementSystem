@@ -1,17 +1,22 @@
 @extends('admin.adminpanel.dashboard') @section('content')
+<style>
+    body{
+        background-color: #FAF9F9;
+    }
+</style>
 <div class="row">
     <div class="col-sm-4 col-3">
         <h4 class="page-title">Doctors</h4>
     
     </div>
-    <div class="col-sm-8 col-6 text-right m-b-5">
+    <div class="col-sm-8  text-right">
         <a href="{{ action('Administrator\ModuliSpitali\\DoctorController@addFormular') }}" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Doctor</a>
     </div>
 </div>
 
 <div class="dash-widget">
     <span class="dash-widget-bg1"><i class="fa fa-plus" aria-hidden="true"></i></span>
-    <div class="dash-widget-info text-center">
+    <div class="dash-widget-info float-center">
         <form method="GET">
             <div class="input-group col-md-6" style="left:230px;">
                 <input type="search" placeholder="What're you searching for?" name="q" aria-describedby="button-addon5" class="form-control">
@@ -32,7 +37,7 @@
 
 
         <div class="row doctor-grid">
-            @foreach ($doctor as $doctor )
+            @foreach ($doctors as $doctor )
             <div class="col-md-4 col-sm-4 col-lg-3">
                
                 <div class="profile-widget" style="border-top: 1px solid #17a2b8;">
@@ -61,6 +66,10 @@
             </div>
 
             @endforeach 
+            
+           
         </div>
+        
+        @include('admin.paginate', ['result' => $doctors, 'type' =>'Dotors'])
 
     @endsection

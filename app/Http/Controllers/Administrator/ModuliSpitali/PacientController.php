@@ -10,7 +10,7 @@ class PacientController extends Controller
 {
     public function getPacient()
     {
-        $pacient = Pacient::all();
+        $pacient = Pacient::paginate(20);
 
         if (request()->has('q')) {
             $pacient = Pacient::where('fullname', 'LIKE', '%' . request()->get('q') . '%')->get();

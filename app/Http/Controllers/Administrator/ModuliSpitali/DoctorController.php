@@ -22,14 +22,14 @@ class DoctorController extends Controller
      */
     public function alldoctor(Request $request)
     {
-        $doctor = Doctor::all();
+        $doctors = Doctor::orderBy('fullname', 'ASC')->paginate(12);
         $count = Doctor::all()->count();
         if ($request->has('q')) {
-            $doctor = Doctor::where('fullname', 'LIKE', '%' . $request->get('q') . '%')->get();
+            $doctors = Doctor::where('fullname', 'LIKE', '%' . $request->get('q') . '%')->paginate(5);
         }
 
         return view('admin.mspitali.doctor.indexdoc',[
-          'doctor'=>$doctor,
+          'doctors'=>$doctors,
           'count'=>$count,
 
           ]);
@@ -105,10 +105,9 @@ class DoctorController extends Controller
     }
 
     public function edit($doctorId){
-       
+
         $doctor=Doctor::find($doctorId);
-      
-         return view('admin.mspitali.doctor.edit',[
+          return view('admin.mspitali.doctor.edit',[
             'doctor'=>$doctor,
          ]);
     }
