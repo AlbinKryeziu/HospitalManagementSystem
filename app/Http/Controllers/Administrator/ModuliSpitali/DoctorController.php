@@ -6,6 +6,7 @@ use App\Departs;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Doctor;
+use App\EducationDoctor;
 use App\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -107,8 +108,33 @@ class DoctorController extends Controller
     public function edit($doctorId){
 
         $doctor=Doctor::find($doctorId);
-          return view('admin.mspitali.doctor.edit',[
+          return view('admin.mspitali.doctor.edit',[ 
             'doctor'=>$doctor,
          ]);
     }
+
+    public function store(Request $request ,$doctorId){
+        
+        return $request;
+
+    }
+
+    public function addDoctorEducation(Request $request,$doctorId){
+
+        $education = new EducationDoctor();
+        $education->education = $request->university;
+        $education->degree = $request->degree;
+        $education->start_date = $request->start_data;
+        $education->graduation  =$request->gradtion;
+        $education->end_date  =$request->end_data;
+        $education->doctor_id  =$doctorId;
+        $education->save();
+
+         if($education){
+             return back();
+       }
+    }
+
+        
+    
 }
