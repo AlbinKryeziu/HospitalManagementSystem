@@ -135,6 +135,18 @@ class DoctorController extends Controller
        }
     }
 
+    public function deleteDoctor($doctorId){
+        $userId = Doctor::where('id' , $doctorId)->pluck('user_id');
+        $doctor = Doctor::where('id', $doctorId)->delete();
+        if($doctor){
+            $user = User::where('id', $userId)->delete();
+        }
+        if ($doctor){
+            $education = EducationDoctor::where('doctor_id', $doctorId)->delete();
+        }
+        return true; 
+
+    }
         
     
 }

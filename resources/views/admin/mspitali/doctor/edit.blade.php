@@ -215,7 +215,8 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="job-detail mt-2 p-4">
-                                <button type="button" class="btn btn-success btn-circle float-right" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i></button>
+                                <button type="button" class="btn btn-warning btn-circle float-right text-center"><i class="fa fa-edit "></i></button>
+                                <button type="button" class="btn btn-info btn-circle float-right" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i></button>                            
                                 <div class="custom-form">
                                     @php $d=1; @endphp 
                                     @forelse($doctor->education as $education)
