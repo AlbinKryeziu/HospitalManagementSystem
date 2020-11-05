@@ -6,6 +6,7 @@ use App\Departs;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Doctor;
+use App\DoctorWrokExperience;
 use App\EducationDoctor;
 use App\User;
 use Illuminate\Support\Carbon;
@@ -134,6 +135,19 @@ class DoctorController extends Controller
              return back();
        }
     }
+    public function AddWorkDoctor(Request $request ,$doctorID){
+     
+      $work = new DoctorWrokExperience();
+      $work->user_id = $doctorID;
+      $work->company = $request->company;
+      $work->position = $request->position;
+      $work->state = $request->location;
+      $work->date_from = $request->date_from;
+      $work->date_to = $request->date_to;
+      $work->save();
+         
+    }
+    
 
     public function deleteDoctor($doctorId){
         $userId = Doctor::where('id' , $doctorId)->pluck('user_id');

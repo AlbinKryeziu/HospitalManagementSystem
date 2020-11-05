@@ -16,7 +16,7 @@ class CreateDoctorsWorkExperienceTable extends Migration
         Schema::create('doctors_work_experience', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('company_name');
+            $table->string('company');
             $table->string('position');
             $table->string('state');
             $table->date('date_from');

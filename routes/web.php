@@ -33,6 +33,7 @@ Route::namespace('Administrator')->prefix('Administrator')->name('Administrator.
   Route::post('/add/new-doctor', 'Administrator\ModuliSpitali\\DoctorController@addDoctor');
   Route::post('/edit-doctor/{id}', 'Administrator\ModuliSpitali\\DoctorController@store');
   Route::post('/add-education/{id}', 'Administrator\ModuliSpitali\\DoctorController@addDoctorEducation');
+  Route::post('/add-work/{id}', 'Administrator\ModuliSpitali\\DoctorController@AddWorkDoctor');
   Route::get('/add-doctor-formular', 'Administrator\ModuliSpitali\\DoctorController@addFormular');
   Route::namespace('Administrator\ModuliSpitali')->prefix('ModuliSpitali')->name('Spitali.')->group(function(){
   Route::get('/spitali', 'SpitaliController@index')->name('spitali');

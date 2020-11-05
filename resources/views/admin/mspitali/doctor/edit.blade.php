@@ -77,18 +77,19 @@
     }
 </style>
 
-<div class="row">
-    <div class="col-lg-12">
-        <h3 class="text-dark">General Information</h3>
-    </div>
-</div>
+
 
 <div class="row">
     <div class="col-lg-12">
         <div class="job-detail mt-2 p-4">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="resume-user mb-5">h</div>
+                    <h5 class="text-dark">General Information</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                <div class="resume-user mb-5">{{substr($doctor->fullname, 0,1 )}}</div>
                 </div>
             </div>
 
@@ -164,7 +165,7 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <h3 class="text-dark mt-5">Contact Information</h3>
+                            <h5 class="text-dark mt-5">Contact Information</h5>
                         </div>
                     </div>
 
@@ -208,7 +209,7 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <h3 class="text-dark mt-5">Education Details</h3>
+                            <h5 class="text-dark mt-5">Education Details</h5>
                         </div>
                     </div>
 
@@ -267,14 +268,14 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <h3 class="text-dark mt-5">Work Experience</h3>
+                            <h5 class="text-dark mt-5">Work Experience</h5>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="job-detail mt-2 p-4">
-                                <button type="button" class="btn btn-success btn-circle float-right"><i class="fa fa-plus"></i></button>
+                                <button type="button" class="btn btn-info btn-circle float-right" data-toggle="modal" data-target="#addwork"><i class="fa fa-plus"></i></button>                            
                                 <div class="custom-form">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -330,7 +331,7 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <h3 class="text-dark mt-5">Skills</h3>
+                            <h5 class="text-dark mt-5">Skills</h5>
                         </div>
                     </div>
 
@@ -376,7 +377,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Add new education</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -430,7 +431,65 @@
                             </div>
                         </div>
                     </div>
-
+                </div>
+                    {{-- modal two --}}
+                   
+                    <div class="modal fade" id="addwork" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Add new Work experience</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="Post" action="{{ action('Administrator\ModuliSpitali\\DoctorController@AddWorkDoctor',$doctor->id)}}">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group app-label">
+                                                    <label for="university/college" class="text-muted">Company Name</label>
+                                                    <input id="company" name="company" type="text" class="form-control resume" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group app-label">
+                                                    <label for="degree/certification" class="text-muted">Job Position</label>
+                                                    <input id="degree" type="text" name="position" class="form-control resume" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group app-label">
+                                                    <label for="graduation" class="text-muted">Location</label>
+                                                    <input id="graduation" name="location" type="text" class="form-control resume" placeholder="" />
+                                                </div>
+                                            </div>
+                    
+                                            <div class="col-lg-4">
+                                                <div class="form-group app-label">
+                                                    <label for="end_date" class="text-muted">Date From</label>
+                                                    <input id="start_date" name="date_from" type="date" class="form-control resume" placeholder="" />
+                                                </div>
+                                            </div>
+                    
+                                            <div class="col-lg-4">
+                                                <div class="form-group app-label">
+                                                    <label for="end_date" class="text-muted">Date to</label>
+                                                    <input id="end_date" type="date" name="date_to" class="form-control resume" placeholder="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    
                     @endsection
                 </div>
             </div>
