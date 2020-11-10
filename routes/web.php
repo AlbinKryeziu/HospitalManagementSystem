@@ -30,10 +30,11 @@ Route::namespace('Administrator')->prefix('Administrator')->name('Administrator.
   Route::get('/alldoctor', 'Administrator\ModuliSpitali\\DoctorController@alldoctor');
   Route::get('/deleteDoctor/{doctorId}', 'Administrator\ModuliSpitali\\DoctorController@deleteDoctor');
   Route::get('/spitali/doctor-edit/{doctorId}', 'Administrator\ModuliSpitali\\DoctorController@edit');
+  Route::get('/delete/work/{workID}', 'Administrator\ModuliSpitali\\DoctorController@deleteWorkDoctor');
   Route::post('/add/new-doctor', 'Administrator\ModuliSpitali\\DoctorController@addDoctor');
   Route::post('/edit-doctor/{id}', 'Administrator\ModuliSpitali\\DoctorController@store');
   Route::post('/add-education/{id}', 'Administrator\ModuliSpitali\\DoctorController@addDoctorEducation');
-  Route::post('/add-work/{id}', 'Administrator\ModuliSpitali\\DoctorController@AddWorkDoctor');
+  Route::post('/add-work/{id}', 'Administrator\ModuliSpitali\\DoctorController@addWorkDoctor');
   Route::get('/add-doctor-formular', 'Administrator\ModuliSpitali\\DoctorController@addFormular');
   Route::namespace('Administrator\ModuliSpitali')->prefix('ModuliSpitali')->name('Spitali.')->group(function(){
   Route::get('/spitali', 'SpitaliController@index')->name('spitali');

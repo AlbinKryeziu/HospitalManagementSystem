@@ -135,7 +135,7 @@ class DoctorController extends Controller
              return back();
        }
     }
-    public function AddWorkDoctor(Request $request ,$doctorID){
+    public function addWorkDoctor(Request $request ,$doctorID){
      
       $work = new DoctorWrokExperience();
       $work->user_id = $doctorID;
@@ -160,6 +160,11 @@ class DoctorController extends Controller
         }
         return true; 
 
+    }
+    public function deleteWorkDoctor($workID){
+        return $workID;
+        $work = EducationDoctor::where('id' ,$workID)->delete();
+       
     }
         
     

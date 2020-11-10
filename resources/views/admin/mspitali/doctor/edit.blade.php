@@ -7,7 +7,7 @@
 <style>
     body {
         background-color: #eee;
-        margin-top: 20px;
+  
     }
     .job-detail {
         border: 1px solid #ececec;
@@ -40,10 +40,7 @@
         transition: all 0.5s;
         text-align: center;
     }
-    body {
-        margin: 40px;
-    }
-
+    
     .btn-circle {
         width: 30px;
         height: 30px;
@@ -77,10 +74,14 @@
     }
 </style>
 
-
-
+<div class="row">
+    <div class="col-sm-7 col-6">
+                   <h4 class="page-title">Doctor/General Information</h4>
+               </div>
+            </div>
 <div class="row">
     <div class="col-lg-12">
+       
         <div class="job-detail mt-2 p-4">
             <div class="row">
                 <div class="col-lg-12">
@@ -216,14 +217,18 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="job-detail mt-2 p-4">
-                                <button type="button" class="btn btn-warning btn-circle float-right text-center"><i class="fa fa-edit "></i></button>
                                 <button type="button" class="btn btn-info btn-circle float-right" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i></button>                            
                                 <div class="custom-form">
                                     @php $d=1; @endphp 
                                     @forelse($doctor->education as $education)
                                     <span class="badge badge-pill badge-secondary">Education <strong>(@php echo $d++; @endphp) </strong></span>
+                                    <br>
+                                    <br>
+                                    <button type="button" href="{{action('Administrator\ModuliSpitali\\DoctorController@deleteWorkDoctor',$education->id)}}" class="btn btn-warning btn-circle float-right text-center"><i class="fa fa-edit "></i></button>
+                                    <button type="button" class="btn btn-danger btn-circle float-right text-center"><i class="fa fa-trash "></i></button>
                                     <br />
                                     <br />
+                                    
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group app-label">
@@ -444,7 +449,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="Post" action="{{ action('Administrator\ModuliSpitali\\DoctorController@AddWorkDoctor',$doctor->id)}}">
+                                    <form method="Post" action="{{ action('Administrator\ModuliSpitali\\DoctorController@addWorkDoctor',$doctor->id)}}">
                                         @csrf
                                         <div class="row">
                                             <div class="col-md-6">

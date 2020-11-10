@@ -3,11 +3,10 @@
 @section('content')
 <div class="row">
          <div class="col-sm-7 col-6">
-                        <h4 class="page-title">Doctor/More Profile</h4>
+                        <h4 class="page-title">Doctor/Profile</h4>
                     </div>
 
                     <div class="col-sm-5 col-6 text-right m-b-30">
-                        <a href="edit-profile.html" class="btn btn-primary btn-rounded"><i class="fa fa-plus"></i> Edit Profile</a>
                     </div>
                 </div>
                 @foreach ($profile as $profile )
