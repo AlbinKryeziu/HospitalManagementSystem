@@ -126,9 +126,9 @@ class DoctorController extends Controller
         $education->education = $request->university;
         $education->degree = $request->degree;
         $education->start_date = $request->start_data;
-        $education->graduation  =$request->gradtion;
-        $education->end_date  =$request->end_data;
-        $education->doctor_id  =$doctorId;
+        $education->graduation = $request->gradtion;
+        $education->end_date = $request->end_data;
+        $education->doctor_id = $doctorId;
         $education->save();
 
          if($education){
@@ -161,9 +161,21 @@ class DoctorController extends Controller
         return true; 
 
     }
+    
     public function deleteWorkDoctor($workID){
-        return $workID;
+        
+        $work = DoctorWrokExperience::where('id' ,$workID)->delete();
+        if ($work){
+            return true;
+        }
+       
+    }
+    public function deleteEducationDoctor($educationID){
+        
         $work = EducationDoctor::where('id' ,$workID)->delete();
+        if ($work){
+            return true;
+        }
        
     }
         

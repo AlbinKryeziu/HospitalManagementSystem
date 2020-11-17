@@ -75,10 +75,13 @@
 </style>
 
 <div class="row">
-    <div class="col-sm-7 col-6">
-                   <h4 class="page-title">Doctor/General Information</h4>
-               </div>
-            </div>
+    <div class="col-lg-12">
+      <ol class="breadcrumb">
+        <li><i class="fa fa-home"></i><a href="index.html"> Home /  </a></li>  
+        <li><i class="fa fa-file-text-o"></i> General Information</li>
+      </ol>  
+</div>
+</div>
 <div class="row">
     <div class="col-lg-12">
        
@@ -224,11 +227,13 @@
                                     <span class="badge badge-pill badge-secondary">Education <strong>(@php echo $d++; @endphp) </strong></span>
                                     <br>
                                     <br>
-                                    <button type="button" href="{{action('Administrator\ModuliSpitali\\DoctorController@deleteWorkDoctor',$education->id)}}" class="btn btn-warning btn-circle float-right text-center"><i class="fa fa-edit "></i></button>
-                                    <button type="button" class="btn btn-danger btn-circle float-right text-center"><i class="fa fa-trash "></i></button>
+                                   <a href="{{action('Administrator\ModuliSpitali\\DoctorController@deleteWorkDoctor',$education->id)}}" 
+                                      
+                                       class="bbtn btn-warning btn-circle float-right text-center" 
+                                     ></a>
+                                    <button type="button"  class="btn btn-warning btn-circle float-right text-center"><i class="fa fa-edit "></i></button>
                                     <br />
                                     <br />
-                                    
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group app-label">
@@ -437,6 +442,26 @@
                         </div>
                     </div>
                 </div>
+                <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Are sure to delete this ?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
                     {{-- modal two --}}
                    
                     <div class="modal fade" id="addwork" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -449,7 +474,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="Post" action="{{ action('Administrator\ModuliSpitali\\DoctorController@addWorkDoctor',$doctor->id)}}">
+                                    <form method="Post" action="{{ action('Administrator\ModuliSpitali\\DoctorController@addWorkDoctor', $doctor->id)}}">
                                         @csrf
                                         <div class="row">
                                             <div class="col-md-6">
@@ -494,6 +519,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                     
                     @endsection
                 </div>

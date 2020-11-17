@@ -130,6 +130,14 @@
     </script>
 
     <body>
+        <div class="row">
+            <div class="col-lg-12">
+              <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="index.html"> Home </a></li>  
+                <li><i class="fa fa-wheelchair"></i> Pacient</li>
+              </ol>  
+        </div>
+        </div>
         <div class="col-xl-12">
             <div class="dash-widget">
                 <span class="dash-widget-bg1"><i class="fa fa-stethoscope" aria-hidden="true"></i></span>

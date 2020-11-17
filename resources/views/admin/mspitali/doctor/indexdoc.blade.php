@@ -1,19 +1,23 @@
-@extends('admin.adminpanel.dashboard') @section('content')
+@extends('admin.adminpanel.dashboard') 
+@section('content')
 <style>
     body{
         background-color: #FAF9F9;
     }
 </style>
-<div class="row">
-    <div class="col-sm-4 col-3">
-        <h4 class="page-title">Doctors</h4>
-    
-    </div>
-    <div class="col-sm-8  text-right">
-        <a href="{{ action('Administrator\ModuliSpitali\\DoctorController@addFormular') }}" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Doctor</a>
-    </div>
-</div>
 
+<div class="row">
+    <div class="col-lg-12">
+      <ol class="breadcrumb">
+        <li><i class="fa fa-home"></i><a href="index.html"> Home / </a></li>
+        <li><i class="fa fa-user-md"></i> Doctors</li>
+      </ol>  
+</div>
+<div class="col-sm-12  text-right">
+    <a href="{{ action('Administrator\ModuliSpitali\\DoctorController@addFormular') }}" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Doctor</a>
+</div>
+</div>
+<br>
 <div class="dash-widget">
     <span class="dash-widget-bg1"><i class="fa fa-plus" aria-hidden="true"></i></span>
     <div class="dash-widget-info float-center">
@@ -24,19 +28,15 @@
                   <button id="button-addon5 " type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                 </div>
               </div>
-        
             </form>
     </div>
-   
+
     <div class="dash-widget-info text-right">
         <h3>{{$count }}</h3>
-
         <span class="widget-title1"> Total Doctor<i class="fa fa-check" aria-hidden="true"></i></span>
+     </div>
     </div>
-</div>
-
-
-        <div class="row doctor-grid">
+          <div class="row doctor-grid">
             @foreach ($doctors as $doctor )
             <div class="col-md-4 col-sm-4 col-lg-3">
                
@@ -64,12 +64,7 @@
                     <td><form action="{{ route('Spitali.profiledoctor') }}" method="POST"><input type="hidden" value="{{ $doctor->id }}" name="id"><button value="submit" class="btn btn-success" style="background-color: #17a2b8; border:#17a2b8; padding: 4px 4px;"><i class="material-icons">&#xE147;</i>@csrf</form></td>
                 </div>
             </div>
-
-            @endforeach 
-            
-           
+            @endforeach
         </div>
-        
         @include('admin.paginate', ['result' => $doctors, 'type' =>'Dotors'])
-
-    @endsection
+ @endsection
