@@ -30,12 +30,18 @@
               </div>
             </form>
     </div>
-
+    
     <div class="dash-widget-info text-right">
         <h3>{{$count }}</h3>
         <span class="widget-title1"> Total Doctor<i class="fa fa-check" aria-hidden="true"></i></span>
      </div>
     </div>
+    @if(Session::has('q'))
+    <div class="alert alert-primary" role="alert">
+  {{ Session::get('q')}}
+</div>
+@endif
+   
           <div class="row doctor-grid">
             @foreach ($doctors as $doctor )
             <div class="col-md-4 col-sm-4 col-lg-3">

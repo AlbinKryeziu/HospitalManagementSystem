@@ -28,6 +28,9 @@ class DoctorController extends Controller
         $count = Doctor::all()->count();
         if ($request->has('q')) {
             $doctors = Doctor::where('fullname', 'LIKE', '%' . $request->get('q') . '%')->paginate(5);
+            if (count($doctors) == 0){
+                return redirect()->back()->with('q', $request->get('q'));
+            }
         }
 
         return view('admin.mspitali.doctor.indexdoc',[
