@@ -28,16 +28,17 @@ class DoctorController extends Controller
         $count = Doctor::all()->count();
         if ($request->has('q')) {
             $doctors = Doctor::where('fullname', 'LIKE', '%' . $request->get('q') . '%')->paginate(5);
-            if (count($doctors) == 0){
-                return redirect()->back()->with('q', $request->get('q'));
+            if (count($doctors) == 0) {
+                return redirect()
+                    ->back()
+                    ->with('q', $request->get('q'));
             }
         }
 
-        return view('admin.mspitali.doctor.indexdoc',[
-          'doctors'=>$doctors,
-          'count'=>$count,
-
-          ]);
+        return view('admin.mspitali.doctor.indexdoc', [
+            'doctors' => $doctors,
+            'count' => $count,
+        ]);
     }
 
     public function addFormular()
@@ -109,22 +110,21 @@ class DoctorController extends Controller
         }
     }
 
-    public function edit($doctorId){
-
-        $doctor=Doctor::find($doctorId);
-          return view('admin.mspitali.doctor.edit',[ 
-            'doctor'=>$doctor,
-         ]);
+    public function edit($doctorId)
+    {
+        $doctor = Doctor::find($doctorId);
+        return view('admin.mspitali.doctor.edit', [
+            'doctor' => $doctor,
+        ]);
     }
 
-    public function store(Request $request ,$doctorId){
-        
+    public function store(Request $request, $doctorId)
+    {
         return $request;
-
     }
 
-    public function addDoctorEducation(Request $request,$doctorId){
-
+    public function addDoctorEducation(Request $request, $doctorId)
+    {
         $education = new EducationDoctor();
         $education->education = $request->university;
         $education->degree = $request->degree;
@@ -134,53 +134,47 @@ class DoctorController extends Controller
         $education->doctor_id = $doctorId;
         $education->save();
 
-         if($education){
-             return back();
-       }
+        if ($education) {
+            return back();
+        }
     }
-    public function addWorkDoctor(Request $request ,$doctorID){
-     
-      $work = new DoctorWrokExperience();
-      $work->user_id = $doctorID;
-      $work->company = $request->company;
-      $work->position = $request->position;
-      $work->state = $request->location;
-      $work->date_from = $request->date_from;
-      $work->date_to = $request->date_to;
-      $work->save();
-         
+    public function addWorkDoctor(Request $request, $doctorID)
+    {
+        $work = new DoctorWrokExperience();
+        $work->user_id = $doctorID;
+        $work->company = $request->company;
+        $work->position = $request->position;
+        $work->state = $request->location;
+        $work->date_from = $request->date_from;
+        $work->date_to = $request->date_to;
+        $work->save();
     }
-    
 
-    public function deleteDoctor($doctorId){
-        $userId = Doctor::where('id' , $doctorId)->pluck('user_id');
+    public function deleteDoctor($doctorId)
+    {
+        $userId = Doctor::where('id', $doctorId)->pluck('user_id');
         $doctor = Doctor::where('id', $doctorId)->delete();
-        if($doctor){
+        if ($doctor) {
             $user = User::where('id', $userId)->delete();
         }
-        if ($doctor){
+        if ($doctor) {
             $education = EducationDoctor::where('doctor_id', $doctorId)->delete();
         }
-        return true; 
+        return true;
+    }
 
-    }
-    
-    public function deleteWorkDoctor($workID){
-        
-        $work = DoctorWrokExperience::where('id' ,$workID)->delete();
-        if ($work){
+    public function deleteWorkDoctor($workID)
+    {
+        $work = DoctorWrokExperience::where('id', $workID)->delete();
+        if ($work) {
             return true;
         }
-       
     }
-    public function deleteEducationDoctor($educationID){
-        
-        $work = EducationDoctor::where('id' ,$workID)->delete();
-        if ($work){
+    public function deleteEducationDoctor($educationID)
+    {
+        $work = EducationDoctor::where('id', $workID)->delete();
+        if ($work) {
             return true;
         }
-       
     }
-        
-    
 }
