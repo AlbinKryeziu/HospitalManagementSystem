@@ -62,33 +62,36 @@ class DoctorController extends Controller
                 $user->roles()->attach(2);
             }
 
-            Doctor::create([
-                'fullname' => $request->fullname,
-                'birthday' => $request->birthday,
-                'depart_id' => $request->depart,
-                'phone' => $request->phone,
-                'biography' => $request->biography,
-                'country' => $request->country,
-                'status' => $request->status,
-                'city' => $request->city,
-                'gender' => $request->gender,
-                'user_id' => $user->id,
-                'phNo' => $request->phNo,
-                'start_job' => Carbon::now(),
-            ]);
+            $doctor = new Doctor();
+            $doctor->fullname = $request->fullname;
+            $doctor->birthday = $request->birthday;
+            $doctor->depart_id = $request->depart;
+            $doctor->phone = $request->phone;
+            $doctor->biography = $request->biography;
+            $doctor->country = $request->country;
+            $doctor->status = $request->status;
+            $doctor->city = $request->city;
+            $doctor->gender = $request->gender;
+            $doctor->user_id = $user->id;
+            $doctor->phNo = $request->phNo;
+            $doctor->start_job = Carbon::now();
+            $doctor->save();
+
         } else {
-            Doctor::create([
-                'fullname' => $request->fullname,
-                'birthday' => $request->birthday,
-                'depart_id' => $request->depart,
-                'phone' => $request->phone,
-                'biography' => $request->biography,
-                'country' => $request->country,
-                'status' => $request->status,
-                'city' => $request->city,
-                'gender' => $request->gender,
-                'phNo' => $request->phNo,
-                'start_job' => Carbon::now(),
+            $doctor = new Doctor();
+            $doctor->fullname = $request->fullname;
+            $doctor->birthday = $request->birthday;
+            $doctor->depart_id = $request->depart;
+            $doctor->phone = $request->phone;
+            $doctor->biography = $request->biography;
+            $doctor->country = $request->country;
+            $doctor->status = $request->status;
+            $doctor->city = $request->city;
+            $doctor->gender = $request->gender;
+            $doctor->phNo = $request->phNo;
+            $doctor->start_job = Carbon::now();
+            $doctor->save();
+
             ]);
         }
 
