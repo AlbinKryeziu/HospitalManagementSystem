@@ -91,8 +91,6 @@ class DoctorController extends Controller
             $doctor->phNo = $request->phNo;
             $doctor->start_job = Carbon::now();
             $doctor->save();
-
-            ]);
         }
 
         return redirect()->route('Spitali.alldoctor');
