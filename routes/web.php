@@ -31,6 +31,7 @@ Route::namespace('Administrator')->prefix('Administrator')->name('Administrator.
   Route::get('/deleteDoctor/{doctorId}', 'Administrator\ModuliSpitali\\DoctorController@deleteDoctor');
   Route::get('/spitali/doctor-edit/{doctorId}', 'Administrator\ModuliSpitali\\DoctorController@edit');
   Route::get('/delete/work/{workID}', 'Administrator\ModuliSpitali\\DoctorController@deleteWorkDoctor');
+  Route::get('/delete/education/{educationID}', 'Administrator\ModuliSpitali\\DoctorController@deleteEducationDoctor');
   Route::post('/add/new-doctor', 'Administrator\ModuliSpitali\\DoctorController@addDoctor');
   Route::post('/edit-doctor/{id}', 'Administrator\ModuliSpitali\\DoctorController@store');
   Route::post('/add-education/{id}', 'Administrator\ModuliSpitali\\DoctorController@addDoctorEducation');

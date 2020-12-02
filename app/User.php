@@ -64,8 +64,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Task');
     }
-    public function isAdmin($role)
+    public function isAdmin()
     {
-        return $this->roles->where('id', 1);
+        return $this->roles()->where('id', 1);
+    }
+    public function isDoctor()
+    {
+         return $this->roles()->where('id',2);
     }
 }

@@ -76,7 +76,6 @@ class DoctorController extends Controller
             $doctor->phNo = $request->phNo;
             $doctor->start_job = Carbon::now();
             $doctor->save();
-
         } else {
             $doctor = new Doctor();
             $doctor->fullname = $request->fullname;
@@ -99,7 +98,7 @@ class DoctorController extends Controller
     public function profiledoctor(Request $request)
     {
         if (Auth::check()) {
-            if (Auth::user()->hasRole('administrator')) {
+            if (Auth::user()->isAdmin()) {
                 $id = $request->id;
                 $profile = Doctor::where('id', $id)->get();
                 $caunt = Doctor::count();
@@ -173,7 +172,7 @@ class DoctorController extends Controller
     }
     public function deleteEducationDoctor($educationID)
     {
-        $work = EducationDoctor::where('id', $workID)->delete();
+        $work = EducationDoctor::where('id', $educationID)->delete();
         if ($work) {
             return true;
         }

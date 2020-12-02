@@ -227,7 +227,7 @@
                                     <span class="badge badge-pill badge-secondary">Education <strong>(@php echo $d++; @endphp) </strong></span>
                                     <br>
                                     <br>
-                                   <a href="{{action('Administrator\ModuliSpitali\\DoctorController@deleteWorkDoctor',$education->id)}}" 
+                                   <a href="{{action('Administrator\ModuliSpitali\\DoctorController@deleteEducationDoctor',$education->id)}}" 
                                       
                                        class="bbtn btn-warning btn-circle float-right text-center" 
                                      ></a>
@@ -369,19 +369,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="text-center">
-                                <input type="submit" id="submit" name="send" class="submitBnt btn btn-custom mt-5" value="Submit Resume" />
-                            </div>
-                        </div>
-                    </div>
                 </form>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Launch demo modal
-                </button>
-
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
