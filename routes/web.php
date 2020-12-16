@@ -32,6 +32,7 @@ Route::namespace('Administrator')->prefix('Administrator')->name('Administrator.
   Route::get('/spitali/doctor-edit/{doctorId}', 'Administrator\ModuliSpitali\\DoctorController@edit');
   Route::get('/delete/work/{workID}', 'Administrator\ModuliSpitali\\DoctorController@deleteWorkDoctor');
   Route::get('/delete/education/{educationID}', 'Administrator\ModuliSpitali\\DoctorController@deleteEducationDoctor');
+  Route::get('/profile/{doctorId}', 'Administrator\ModuliSpitali\\DoctorController@profiledoctor');
   Route::post('/add/new-doctor', 'Administrator\ModuliSpitali\\DoctorController@addDoctor');
   Route::post('/edit-doctor/{id}', 'Administrator\ModuliSpitali\\DoctorController@store');
   Route::post('/add-education/{id}', 'Administrator\ModuliSpitali\\DoctorController@addDoctorEducation');
@@ -41,7 +42,7 @@ Route::namespace('Administrator')->prefix('Administrator')->name('Administrator.
   Route::get('/spitali', 'SpitaliController@index')->name('spitali');
   Route::get('/alldoctor', 'DoctorController@alldoctor')->name('alldoctor');
   Route::get('/add-doctor-formular', 'DoctorController@addformular')->name('addformular');
-  Route::post('/profile', 'DoctorController@profiledoctor')->name('profiledoctor');
+//   Route::post('/profile', 'DoctorController@profiledoctor')->name('profiledoctor');
 
   
 

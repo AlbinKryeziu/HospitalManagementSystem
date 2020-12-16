@@ -8,7 +8,7 @@ use App\Pacient;
 
 class PacientController extends Controller
 {
-    public function getPacient()
+    public function getPacient($paginate = 20)
     {
         $pacient = Pacient::paginate(20);
 

@@ -1,16 +1,11 @@
 @extends('admin.adminpanel.dashboard') 
 @section('content')
-<style>
-    body{
-        background-color: #FAF9F9;
-    }
-</style>
 
 <div class="row">
-    <div class="col-lg-12">
-      <ol class="breadcrumb">
-        <li><i class="fa fa-home"></i><a href="index.html"> Home / </a></li>
-        <li><i class="fa fa-user-md"></i> Doctors</li>
+    <div class="col-lg-12 ">
+      <ol class="breadcrumb homebar"> 
+        <li><i class="fa fa-home"></i> Home /  </a></li>
+        <li><i class="fa fa-user-md"></i>  Doctors</li>
       </ol>  
 </div>
 <div class="col-sm-12  text-right">
@@ -23,7 +18,7 @@
     <div class="dash-widget-info float-center">
         <form method="GET">
             <div class="input-group col-md-6" style="left:230px;">
-                <input type="search" placeholder="What're you searching for?" name="q" aria-describedby="button-addon5" class="form-control">
+                <input type="search" placeholder="Search doctor by name ?" name="q" aria-describedby="button-addon5" class="form-control">
                 <div class="input-group-append">
                   <button id="button-addon5 " type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                 </div>
@@ -45,7 +40,6 @@
           <div class="row doctor-grid">
             @foreach ($doctors as $doctor )
             <div class="col-md-4 col-sm-4 col-lg-3">
-               
                 <div class="profile-widget" style="border-top: 1px solid #17a2b8;">
                     @if($doctor->status == 1)
                     <span class="badge badge-info float-left">Online</span>
@@ -63,11 +57,11 @@
                         <a class="dropdown-item" href="{{action('Administrator\ModuliSpitali\\DoctorController@deleteDoctor',$doctor->id)}}" ><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                         </div>
                     </div>
-                    <h4 class="doctor-name text-ellipsis"><a href="profile.html">{{ $doctor->fullname }}</a></h4>
+                    <h4 class="doctor-name text-ellipsis"><a href="{!! action('Administrator\ModuliSpitali\\DoctorController@profiledoctor', $doctor->id) !!}">{{ $doctor->fullname }}</a></h4>
                     <div class="doc-prof">{{$doctor->depart->name}}</div>
                     <div class="user-country"><i class="fa fa-map-marker"></i> {{ $doctor->country }}/{{ $doctor->city }}</div>
-                    <br />
-                    <td><form action="{{ route('Spitali.profiledoctor') }}" method="POST"><input type="hidden" value="{{ $doctor->id }}" name="id"><button value="submit" class="btn btn-success" style="background-color: #17a2b8; border:#17a2b8; padding: 4px 4px;"><i class="material-icons">&#xE147;</i>@csrf</form></td>
+                    <br/>
+                    
                 </div>
             </div>
             @endforeach

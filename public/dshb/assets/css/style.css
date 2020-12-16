@@ -814,7 +814,10 @@ textarea.form-control {
 .status.away {
 	background-color: #faa937;
 }
-
+.homebar{
+	background: #17a2b8;
+	color: white
+   }
 /*-----------------
 	6. Sidebar
 -----------------------*/

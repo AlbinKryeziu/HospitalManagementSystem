@@ -95,19 +95,15 @@ class DoctorController extends Controller
         return redirect()->route('Spitali.alldoctor');
     }
 
-    public function profiledoctor(Request $request)
+    public function profiledoctor($doctorID)
     {
-        if (Auth::check()) {
-            if (Auth::user()->isAdmin()) {
-                $id = $request->id;
-                $profile = Doctor::where('id', $id)->get();
+            if (Auth::user()->isAdmin())
+            {
+                $profile = Doctor::where('id', $doctorID)->get();
                 $caunt = Doctor::count();
-
                 return view('admin.mspitali.doctor.profile', compact('profile', 'caunt'));
             }
-        } else {
-            return redirect('login');
-        }
+       
     }
 
     public function edit($doctorId)
