@@ -1,84 +1,10 @@
 @extends('admin.adminpanel.dashboard')
  @section('content')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
-<style>
-    body {
-        background-color: #eee;
-  
-    }
-    .job-detail {
-        border: 1px solid #ececec;
-        border-radius: 6px;
-        background-color: #fff;
-    }
-    .form-button .nice-select {
-        width: 100%;
-        height: 39px;
-        line-height: 37px;
-        color: #6b757d;
-        margin-bottom: 1rem;
-        border: solid 1px #e9e9e9;
-    }
-
-    .resume-user {
-        position: relative;
-        width: 100px;
-        height: 100px;
-        line-height: 100px;
-        font-size: 66px;
-        border-radius: 50px;
-        top: 0;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        background-color: #e9e9e9;
-        color: #ff4f6c;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s;
-        text-align: center;
-    }
-    
-    .btn-circle {
-        width: 30px;
-        height: 30px;
-        text-align: center;
-        padding: 6px 0;
-        font-size: 12px;
-        line-height: 1.428571429;
-        border-radius: 15px;
-    }
-    .btn-circle.btn-lg {
-        width: 50px;
-        height: 50px;
-        padding: 10px 16px;
-        font-size: 18px;
-        line-height: 1.33;
-        border-radius: 25px;
-    }
-    .btn-circle.btn-xl {
-        width: 70px;
-        height: 70px;
-        padding: 10px 16px;
-        font-size: 24px;
-        line-height: 1.33;
-        border-radius: 35px;
-    }
-    .modal-content {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        margin-top: 50%;
-    }
-</style>
-
 <div class="row">
-    <div class="col-lg-12">
-      <ol class="breadcrumb">
-        <li><i class="fa fa-home"></i><a href="index.html"> Home /  </a></li>  
-        <li><i class="fa fa-file-text-o"></i> General Information</li>
+    <div class="col-lg-12 ">
+      <ol class="breadcrumb homebar"> 
+        <li><i class="fa fa-home"></i> Home / </a></li>
+        <li><i class="fa fa-user-md"></i>  General Information</li>
       </ol>  
 </div>
 </div>
@@ -227,10 +153,10 @@
                                     <span class="badge badge-pill badge-secondary">Education <strong>(@php echo $d++; @endphp) </strong></span>
                                     <br>
                                     <br>
-                                   <a href="{{action('Administrator\ModuliSpitali\\DoctorController@deleteEducationDoctor',$education->id)}}" 
+                                   <a href="{{action('Administrator\ModuliSpitali\\DoctorController@deleteEducationDoctor', $education->id)}}" 
                                       
                                        class="bbtn btn-warning btn-circle float-right text-center" 
-                                     ></a>
+                                     ><i class="fa fa-trash "></i></a>
                                     <button type="button"  class="btn btn-warning btn-circle float-right text-center"><i class="fa fa-edit "></i></button>
                                     <br />
                                     <br />
@@ -238,33 +164,33 @@
                                         <div class="col-md-6">
                                             <div class="form-group app-label">
                                                 <label for="university/college" class="text-muted">University/College</label>
-                                                <input id="university" name="university" type="text" class="form-control resume" placeholder="{{$education->education }}" />
+                                                <input id="university" name="university" disabled type="text" class="form-control resume" placeholder="{{$education->education }}" />
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group app-label">
                                                 <label for="degree/certification" class="text-muted">Degree</label>
-                                                <input id="degree" type="text" name="degree" class="form-control resume" placeholder="{{$education->degree}}" />
+                                                <input id="degree" type="text" name="degree" disabled  class="form-control resume" placeholder="{{$education->degree}}" />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group app-label">
                                                 <label for="graduation" class="text-muted">Graduation</label>
-                                                <input id="graduation" name="gradtion" type="text" class="form-control resume" placeholder="{{$education->graduation }}" />
+                                                <input id="graduation" name="gradtion" disabled type="text" class="form-control resume" placeholder="{{$education->graduation }}" />
                                             </div>
                                         </div>
 
                                         <div class="col-lg-4">
                                             <div class="form-group app-label">
                                                 <label for="end_date" class="text-muted">Start Date</label>
-                                                <input id="start_date" name="start_data" type="number" class="form-control resume" placeholder="{{$education->end_date}}" />
+                                                <input id="start_date" name="start_data"  disabled type="number" class="form-control resume" placeholder="{{$education->end_date}}" />
                                             </div>
                                         </div>
 
                                         <div class="col-lg-4">
                                             <div class="form-group app-label">
                                                 <label for="end_date" class="text-muted">End Date</label>
-                                                <input id="end_date" type="number" name="end_data" class="form-control resume" placeholder="{{$education->end_date}}" />
+                                                <input id="end_date" type="number" disabled name="end_data" class="form-control resume" placeholder="{{$education->end_date}}" />
                                             </div>
                                         </div>
                                     </div>
@@ -285,27 +211,29 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="job-detail mt-2 p-4">
-                                <button type="button" class="btn btn-info btn-circle float-right" data-toggle="modal" data-target="#addwork"><i class="fa fa-plus"></i></button>                            
+                                <button type="button" class="btn btn-info btn-circle float-right" data-toggle="modal" data-target="#addwork"><i class="fa fa-plus"></i></button>          
+                                @forelse($doctor->workExperince 
+                                as $work)                  
                                 <div class="custom-form">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group app-label">
                                                 <label for="company-name" class="text-muted">Company Name</label>
-                                                <input id="company-name" name="company" type="text" class="form-control resume" placeholder="" />
+                                                <input id="company-name" name="company" disabled type="text" class="form-control resume" placeholder="{{ $work->company }}" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-group app-label">
                                                 <label for="job-position" class="text-muted">Job Position</label>
-                                                <input id="job-position" name="positiob" type="text" class="form-control resume" placeholder="" />
+                                                <input id="job-position" name="positiob"  disabled type="text" class="form-control resume" placeholder="{{ $work->position }}" />
                                             </div>
                                         </div>
 
                                         <div class="col-lg-6">
                                             <div class="form-group app-label">
                                                 <label for="location" class="text-muted">Location</label>
-                                                <input id="job-position" name="positiob" type="text" class="form-control resume" placeholder="" />
+                                                <input id="job-position" name="positiob"  disabled type="text" class="form-control resume" placeholder="{{ $work->start_date }}" />
                                             </div>
                                         </div>
 
@@ -314,18 +242,19 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group app-label">
                                                         <label for="date-from" class="text-muted">Date From</label>
-                                                        <input id="date-from" type="text" class="form-control resume" placeholder="01-Jan-2018" />
+                                                        <input id="date-from" type="text" disabled class="form-control resume" placeholder="{{ $work->start_date }}" />
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <div class="form-group app-label">
                                                         <label for="date-to" class="text-muted">Date To</label>
-                                                        <input id="date-to" type="text" class="form-control resume" placeholder="31-March-2019" />
+                                                        <input id="date-to" type="text" disabled  class="form-control resume" placeholder="{{ $work->end_date }}" />
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        @endforeach
 
                                         <div class="col-lg-12">
                                             <div class="form-group app-label">
@@ -370,6 +299,7 @@
                         </div>
                     </div>
                 </form>
+                
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -430,26 +360,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Are sure to delete this ?</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    
+          
                     {{-- modal two --}}
                    
                     <div class="modal fade" id="addwork" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -507,11 +418,5 @@
                                 </div>
                             </div>
                         </div>
-                        
-                    
                     @endsection
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+  

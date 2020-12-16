@@ -30,5 +30,8 @@ class Doctor extends Model
 
         return $this->hasMany('App\EducationDoctor','doctor_id','id');
     }
+    public function workExperince(){
 
+        return $this->hasMany(DoctorWrokExperience::class);
+    }
 }

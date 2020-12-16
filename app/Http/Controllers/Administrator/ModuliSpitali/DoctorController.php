@@ -136,13 +136,13 @@ class DoctorController extends Controller
     }
     public function addWorkDoctor(Request $request, $doctorID)
     {
+
         $work = new DoctorWrokExperience();
-        $work->user_id = $doctorID;
+        $work->doctor_id = $doctorID;
         $work->company = $request->company;
         $work->position = $request->position;
-        $work->state = $request->location;
-        $work->date_from = $request->date_from;
-        $work->date_to = $request->date_to;
+        $work->start_date = $request->date_from;
+        $work->end_date = $request->date_to;
         $work->save();
     }
 

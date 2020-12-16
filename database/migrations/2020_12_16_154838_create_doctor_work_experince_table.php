@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDoctorsWorkExperienceTable extends Migration
+class CreateDoctorWorkExperinceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateDoctorsWorkExperienceTable extends Migration
      */
     public function up()
     {
-        Schema::create('doctors_work_experience', function (Blueprint $table) {
+        Schema::create('doctor_work_experince', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('company');
             $table->string('position');
-            $table->string('state');
-            $table->date('date_from');
-            $table->date('date_to');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->unsignedBigInteger('doctor_id');
+            $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ class CreateDoctorsWorkExperienceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctors_work_experience');
+        Schema::dropIfExists('doctor_work_experince');
     }
 }
