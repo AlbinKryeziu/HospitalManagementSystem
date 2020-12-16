@@ -22,7 +22,6 @@
                 <div class="resume-user mb-5">{{substr($doctor->fullname, 0,1 )}}</div>
                 </div>
             </div>
-
             <div class="custom-form">
                 <form method="Post" action="{{action('Administrator\ModuliSpitali\\DoctorController@store' ,$doctor->id)}}">
                     @csrf
@@ -30,17 +29,15 @@
                         <div class="col-md-4">
                             <div class="form-group app-label">
                                 <label for="frist-name" class="text-muted">First Name</label>
-                                <input id="frist_name" name="frist_name" type="text" class="form-control resume" placeholder="{{$doctor->fullname}}" />
+                                <input id="frist_name" name="frist_name" disabled type="text" class="form-control resume" placeholder="{{$doctor->fullname}}" />
                             </div>
                         </div>
-
                         <div class="col-md-4">
                             <div class="form-group app-label">
                                 <label for="middle-name" class="text-muted">Profession</label>
-                                <input id="middle-name" name="departId" value="{{$doctor->depart->id}}" type="text" class="form-control resume" placeholder="{{$doctor->depart->name}}" />
+                                <input id="middle-name" name="departId" disabled value="{{$doctor->depart->name}}" type="text" class="form-control resume" placeholder="{{$doctor->depart->name}}" />
                             </div>
                         </div>
-
                         <div class="col-md-4">
                             <div class="form-group app-label">
                                 <label for="surname-name" class="text-muted">Age</label>
@@ -57,48 +54,30 @@
                                 />
                             </div>
                         </div>
-
                         <div class="col-md-4">
                             <div class="form-group app-label">
                                 <label for="date-of-birth" class="text-muted">Date Of Birth</label>
-                                <input id="birthday" type="text" name="birthday" class="form-control resume" placeholder="{{$doctor->birthday}}" />
+                                <input id="birthday" type="text"  disabled name="birthday" class="form-control resume" placeholder="{{$doctor->birthday}}" />
                             </div>
                         </div>
-
                         <div class="col-md-4">
                             <div class="form-group app-label">
-                                <label for="General" class="text-muted">Gender</label>
-                                <div class="form-button">
-                                    <select class="nice-select" name="gender">
-                                        <option data-display="General">{{$doctor->gender}}</option>
-                                        <option value="1">Male</option>
-                                        <option value="2">Female</option>
-                                        <option value="3">Other</option>
-                                    </select>
-                                </div>
+                                <label for="General" class="text-muted" disabled >Gender</label>
+                                <input id="gender" type="text"  disabled name="birthday" class="form-control resume" placeholder="{{$doctor->gender}}" />
                             </div>
                         </div>
-
                         <div class="col-md-4">
                             <div class="form-group app-label">
-                                <label for="marital-status" class="text-muted">Marital Status</label>
-                                <div class="form-button">
-                                    <select class="nice-select">
-                                        <option data-display="Status">Status</option>
-                                        <option value="1">Single</option>
-                                        <option value="2">Married</option>
-                                    </select>
-                                </div>
+                                <label for="General" class="text-muted" disabled >Country</label>
+                                <input id="gender" type="text"  disabled name="birthday" class="form-control resume" placeholder="{{$doctor->country}}" />
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-lg-12">
                             <h5 class="text-dark mt-5">Contact Information</h5>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="job-detail mt-2 p-4">
@@ -107,28 +86,28 @@
                                         <div class="col-md-4">
                                             <div class="form-group app-label">
                                                 <label for="date-of-birth" class="text-muted">City</label>
-                                                <input id="birthday" type="text" name="city" class="form-control resume" placeholder="{{$doctor->city}}" />
+                                                <input id="birthday" type="text" disabled name="city" class="form-control resume" placeholder="{{$doctor->city}}" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group app-label">
                                                 <label for="date-of-birth" class="text-muted">State</label>
-                                                <input id="birthday" type="text" name="state" class="form-control resume" placeholder="{{$doctor->country}}" />
+                                                <input id="birthday" type="text" disabled name="state" class="form-control resume" placeholder="{{$doctor->country}}" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group app-label">
                                                 <label for="date-of-birth" class="text-muted">Phone</label>
-                                                <input id="birthday" type="text" name="phone" class="form-control resume" placeholder="{{$doctor->phone}}" />
+                                                <input id="birthday" type="text" disabled name="phone" class="form-control resume" placeholder="{{$doctor->phone}}" />
                                             </div>
                                         </div>
 
                                         <div class="col-lg-12">
                                             <div class="form-group app-label">
                                                 <label for="address">Biography</label>
-                                                <textarea id="address" rows="4" name="biography" class="form-control resume" placeholder="{{$doctor->biography }}"></textarea>
+                                                <textarea id="address" rows="4" disabled name="biography" class="form-control resume" placeholder="{{$doctor->biography }}"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -211,10 +190,20 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="job-detail mt-2 p-4">
-                                <button type="button" class="btn btn-info btn-circle float-right" data-toggle="modal" data-target="#addwork"><i class="fa fa-plus"></i></button>          
-                                @forelse($doctor->workExperince 
-                                as $work)                  
+                                <button type="button" class="btn btn-info btn-circle float-right" data-toggle="modal" data-target="#addwork"><i class="fa fa-plus"></i></button>     
+                                @php $w=1; @endphp     
+                                @forelse($doctor->workExperince as $work)                  
                                 <div class="custom-form">
+                                     <span class="badge badge-pill badge-secondary">Education <strong>(@php echo $w++; @endphp) </strong></span>
+                                     <br>
+                                     <br>
+                                    <a href="{{action('Administrator\ModuliSpitali\\DoctorController@deleteWorkDoctor', $work->id)}}" 
+                                       
+                                        class="bbtn btn-warning btn-circle float-right text-center" 
+                                      ><i class="fa fa-trash "></i></a>
+                                     <button type="button"  class="btn btn-warning btn-circle float-right text-center"><i class="fa fa-edit "></i></button>
+                                     <br />
+                                     <br />
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group app-label">
@@ -254,45 +243,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        @endforeach
-
-                                        <div class="col-lg-12">
-                                            <div class="form-group app-label">
-                                                <label for="addition-information-1">Addition Information</label>
-                                                <textarea id="addition-information-1" rows="4" class="form-control resume" placeholder=""></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h5 class="text-dark mt-5">Skills</h5>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="job-detail mt-2 p-4">
-                                <button type="button" class="btn btn-success btn-circle float-right"><i class="fa fa-plus"></i></button>
-                                <div class="custom-form">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="form-group app-label">
-                                                <label for="skills" class="text-muted">Skills</label>
-                                                <input id="skills" type="text" class="form-control resume" placeholder="HTML, CSS, PHP, javascript, ..." />
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <div class="form-group app-label">
-                                                <label for="skill proficiency" class="text-muted">Skill proficiency</label>
-                                                <input id="skill proficiency" type="text" class="form-control resume" placeholder="75%" />
-                                            </div>
-                                        </div>
+                                        @empty
+                                        <div class="well"> No result for work of {{$doctor->fullname}}</div>
+                                        @endforelse
                                     </div>
                                 </div>
                             </div>
