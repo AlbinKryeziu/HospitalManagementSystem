@@ -14,7 +14,8 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label">Full Name:</label>
                         <div class="col-lg-9">
-                            <input type="text" class="form-control" id="name" name="fullname" />
+                            <input type="text" class="form-control" id="fullname" placeholder="
+                            {{ old('fullname')}}" name="fullname" />
                             @error('fullname')
                             <label class="error" style="color: red" >{{ $message }}</label>
                             @enderror
@@ -23,16 +24,17 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label">Email</label>
                         <div class="col-lg-9">
-                            <input type="email" class="form-control" id="email" name="email" />
+                            <input type="email" class="form-control" id="email" value="
+                            {{ old('email')}}"  name="email" />
                             @error('email')
-                            <label class="error" style="color: red">{{ $message }}</label>
+                            <span class="error" style="color: red">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label">Password</label>
                         <div class="col-lg-9">
-                            <input type="password" class="form-control" id="password" name="password" />
+                            <input type="password" class="form-control" id="password"  name="password" />
                             @error('password')
                             <label class="error" style="color: red">{{ $message }}</label>
                             @enderror
@@ -42,7 +44,8 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label">Birthday:</label>
                         <div class="col-lg-9">
-                            <input type="date" class="form-control datetimepicker" name="birthday" />
+                            <input type="date" class="form-control datetimepicker"  value="
+                            {{ old('birthday')}}" name="birthday" />
                             @error('phNo')
                             <label class="error" style="color: red">{{ $message }}</label>
                             @enderror
@@ -65,7 +68,8 @@
                         <div class="col-lg-9">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <select class="form-control select" name="depart" id="depart">
+                                    <select class="form-control select" name="depart" value="
+                                    {{ old('depart')}}" id="depart">
                                         @foreach ($depart as $dep)
                                         <option value="{{ $dep->id }}">{{ $dep->name }}</option>
                                         @endforeach
@@ -80,31 +84,35 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label">PhNo:</label>
                         <div class="col-lg-9">
-                            <input class="form-control" type="text" name="phNo" id="phNo" />
+                            <input class="form-control" type="text" name="phNo" value="
+                            {{ old('phNo')}}" id="phNo" />
                             @error('phNo')
-                            <label class="error" style="color: red">{{ $message }}</label>
+                            <label class="error" style="color: red" >{{ $message }}</label>
                             @enderror
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label">Phone:</label>
                         <div class="col-lg-9">
-                            <input type="text" class="form-control" name="phone" id="phone" />
+                            <input type="text" class="form-control" name="phone" value="
+                            {{ old('phone')}}" id="phone" />
                             @error('phone')
-                            <label class="error">{{ $message }}</label>
+                            <label class="error" style="color: red">{{ $message }}</label>
                             @enderror
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label">Photo:</label>
                         <div class="col-lg-9">
-                            <input type="file" class="form-control" name="image" />
+                            <input type="file" class="form-control" value="
+                            {{ old('image')}}" name="image" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label">Bio:</label>
                         <div class="col-lg-9">
-                            <textarea class="form-control" rows="3" cols="15" name="biography"></textarea>
+                            <textarea class="form-control" rows="3" cols="15" value="
+                            {{ old('biography')}}"  name="biography"></textarea>
                             <br />
                             <div class="row">
                                 <div class="col-md-6">

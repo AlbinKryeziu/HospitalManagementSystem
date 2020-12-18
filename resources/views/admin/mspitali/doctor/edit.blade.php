@@ -194,7 +194,7 @@
                                 @php $w=1; @endphp     
                                 @forelse($doctor->workExperince as $work)                  
                                 <div class="custom-form">
-                                     <span class="badge badge-pill badge-secondary">Education <strong>(@php echo $w++; @endphp) </strong></span>
+                                     <span class="badge badge-pill badge-secondary">Work <strong>(@php echo $w++; @endphp) </strong></span>
                                      <br>
                                      <br>
                                     <a href="{{action('Administrator\ModuliSpitali\\DoctorController@deleteWorkDoctor', $work->id)}}" 

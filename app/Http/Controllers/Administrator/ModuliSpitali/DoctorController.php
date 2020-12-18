@@ -49,8 +49,6 @@ class DoctorController extends Controller
 
     public function addDoctor(DoctorStoreRequest $request)
     {
-        $validated = $request->validated();
-
         if ($request->input('email') && $request->input('password')) {
             $user = User::create([
                 'name' => $request->fullname,
