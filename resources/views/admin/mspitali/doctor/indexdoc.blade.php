@@ -32,7 +32,7 @@
      </div>
     </div>
     @if(Session::has('q'))
-    <div class="alert alert-primary" role="alert">
+    <div class="alert alert-primary" role="alert">No result by 
   {{ Session::get('q')}}
 </div>
 @endif
@@ -48,7 +48,7 @@
                     @endif
 
                     <div class="doctor-img">
-                        <a class="avatar" href="profile.html"><img alt="" src="{{asset('image/'.$doctor->image)}}" /></a>
+                        <a class="avatar" href="profile.html"><img alt="" src="{{ asset('images/' . $doctor->image) }}" /></a>
                     </div>
                     <div class="dropdown profile-action">
                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>

@@ -6,7 +6,7 @@ use App\Departs;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Doctor;
-use App\DoctorWrokExperience; 
+use App\DoctorWrokExperience;
 use App\EducationDoctor;
 use App\User;
 use Illuminate\Support\Carbon;
@@ -32,7 +32,7 @@ class DoctorController extends Controller
                 return redirect()
                     ->back()
                     ->with('q', $request->get('q'));
-            }        
+            }
         }
 
         return view('admin.mspitali.doctor.indexdoc', [
@@ -59,6 +59,14 @@ class DoctorController extends Controller
             if ($user) {
                 $user->roles()->attach(2);
             }
+            if ($request->image) {
+                $imageName = time() . '.' . $request->image->extension();
+                $request->image->move(public_path('images'), $imageName);
+            } elseif ($request->gender == "female") {
+                $imageName = "female.jpg";
+            } else {
+                $imageName = "male.jpg";
+            }
 
             $doctor = new Doctor();
             $doctor->fullname = $request->fullname;
@@ -70,6 +78,7 @@ class DoctorController extends Controller
             $doctor->status = $request->status;
             $doctor->city = $request->city;
             $doctor->gender = $request->gender;
+            $doctor->image = $imageName;
             $doctor->user_id = $user->id;
             $doctor->phNo = $request->phNo;
             $doctor->start_job = Carbon::now();
@@ -95,13 +104,11 @@ class DoctorController extends Controller
 
     public function profiledoctor($doctorID)
     {
-            if (Auth::user()->isAdmin())
-            {
-                $profile = Doctor::where('id', $doctorID)->get();
-                $caunt = Doctor::count();
-                return view('admin.mspitali.doctor.profile', compact('profile', 'caunt'));
-            }
-       
+        if (Auth::user()->isAdmin()) {
+            $profile = Doctor::where('id', $doctorID)->get();
+            $caunt = Doctor::count();
+            return view('admin.mspitali.doctor.profile', compact('profile', 'caunt'));
+        }
     }
 
     public function edit($doctorId)
@@ -134,7 +141,6 @@ class DoctorController extends Controller
     }
     public function addWorkDoctor(Request $request, $doctorID)
     {
-
         $work = new DoctorWrokExperience();
         $work->doctor_id = $doctorID;
         $work->company = $request->company;
@@ -148,7 +154,7 @@ class DoctorController extends Controller
     {
         $userId = Doctor::where('id', $doctorId)->pluck('user_id');
         $doctor = Doctor::where('id', $doctorId)->delete();
-        if ($doctor) {
+        if ($userId) {
             $user = User::where('id', $userId)->delete();
         }
         if ($doctor) {

@@ -36,6 +36,7 @@ class DoctorStoreRequest extends FormRequest
             'status'=>'required',
             'city'=>'required',
             'gender'=>'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ];
     }
@@ -53,6 +54,7 @@ class DoctorStoreRequest extends FormRequest
             'phone.required' => 'Phone  is required!',
             'country.required' => 'Country Phno is required!',
             'status.required' => 'Status Phno is required!',
+            'image'=>'image',
         ];
     }
 }

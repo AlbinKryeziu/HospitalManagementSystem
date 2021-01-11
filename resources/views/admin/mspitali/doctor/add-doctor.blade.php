@@ -5,7 +5,7 @@
 </div>
 <br />
 <div class="col-md-12">
-    <form method="POST" action="{{ action('Administrator\ModuliSpitali\\DoctorController@addDoctor') }}">
+    <form method="POST" action="{{ action('Administrator\ModuliSpitali\\DoctorController@addDoctor') }}" enctype="multipart/form-data">
         @csrf
         <div class="card-box">
             <div class="row">
@@ -104,9 +104,11 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label">Photo:</label>
                         <div class="col-lg-9">
-                            <input type="file" class="form-control" value="
-                            {{ old('image')}}" name="image" />
+                            <input type="file" name="image" class="form-control">
                         </div>
+                        @error('image')
+                                    <label class="error" style="color: red">{{ $message }}</label>
+                                    @enderror
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label">Bio:</label>
